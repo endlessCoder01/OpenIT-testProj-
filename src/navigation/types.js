@@ -1,0 +1,18 @@
+export const ROUTES = {
+  onboarding: 'Onboarding',
+  home: 'Home',
+  services: 'Services',
+  projects: 'Projects',
+  gallery: 'Gallery',
+  more: 'More',
+  about: 'About',
+  whyChooseUs: 'Why Choose Us',
+  team: 'Our Team',
+  testimonials: 'Testimonials',
+  contact: 'Get in Touch',
+  map: 'Find Us',
+  feedback: 'Give Feedback',
+  complaint: 'Make a Complaint',
+  chatbot: 'Ask OpenIT',
+  authGate: 'AuthGate',
+};

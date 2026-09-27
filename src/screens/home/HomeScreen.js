@@ -61,42 +61,6 @@ export default function HomeScreen({ navigation }) {
           </View>
 
           <View style={{ marginTop: spacing.xxl }}>
-            <SectionHeader title="About Us" subtitle="Professional technology support with a local, people-first approach." />
-            <View style={{ backgroundColor: colors.white, borderRadius: radius.xl, padding: spacing.xl, ...shadows.card }}>
-              <Text style={{ color: colors.text, fontSize: 15, lineHeight: 24 }}>{company.story}</Text>
-            </View>
-          </View>
-
-          <View style={{ marginTop: spacing.xxl }}>
-            <SectionHeader title="Why Choose Us" subtitle="What sets OpenIT apart." />
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
-              <FeatureCard icon={faBriefcase} title="Trusted Expertise" description="Practical knowledge across IT, cybersecurity and network operations." />
-              <FeatureCard icon={faUsers} title="Family Values" description="A business rooted in trust, accountability and long-term relationships." />
-              <FeatureCard icon={faArrowUpRightFromSquare} title="Tailored Solutions" description="Services designed around your environment, goals and operational needs." />
-              <FeatureCard icon={faBell} title="Reliability" description="Dependable support and a steady focus on business continuity." />
-            </View>
-          </View>
-
-          <View style={{ marginTop: spacing.xxl }}>
-            <SectionHeader title="Our Services" subtitle="Solutions built around your business." action={<Pressable onPress={() => navigation.navigate('Services')}><Text style={{ color: colors.primary, fontWeight: '700' }}>View all</Text></Pressable>} />
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingRight: spacing.md }}>
-              {services.map((service) => (
-                <Pressable key={service.id} onPress={() => navigation.navigate('Services')} style={{ width: 220, marginRight: spacing.md, backgroundColor: colors.white, borderRadius: radius.xl, padding: spacing.xl, ...shadows.card }}>
-                  <View style={{ width: 46, height: 46, borderRadius: radius.pill, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md }}>
-                    <FontAwesomeIcon icon={serviceIcons[service.title] || faBriefcase} color={colors.primary} size={18} />
-                  </View>
-                  <Text style={{ fontSize: 18, fontWeight: '700', color: colors.text }}>{service.title}</Text>
-                  <Text style={{ marginTop: spacing.sm, fontSize: 13, color: colors.textSecondary, lineHeight: 20 }}>{service.description}</Text>
-                  <View style={{ marginTop: spacing.lg, flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-end' }}>
-                    <Text style={{ color: colors.primary, fontWeight: '700' }}>Learn more</Text>
-                    <FontAwesomeIcon icon={faChevronRight} size={12} color={colors.primary} style={{ marginLeft: 6 }} />
-                  </View>
-                </Pressable>
-              ))}
-            </ScrollView>
-          </View>
-
-          <View style={{ marginTop: spacing.xxl }}>
             <SectionHeader title="Latest Projects" subtitle="Placeholder project work for future publishing." action={<Pressable onPress={() => navigation.navigate('Projects')}><Text style={{ color: colors.primary, fontWeight: '700' }}>View all</Text></Pressable>} />
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingRight: spacing.md }}>
               {projectPlaceholders.map((project) => (
@@ -112,21 +76,19 @@ export default function HomeScreen({ navigation }) {
             </ScrollView>
           </View>
 
+
           <View style={{ marginTop: spacing.xxl }}>
-            <SectionHeader title="What Our Clients Say" subtitle="Placeholder client feedback for future public review." />
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingRight: spacing.md }}>
-              {testimonials.map((item) => (
-                <View key={item.id} style={{ width: 260, marginRight: spacing.md, backgroundColor: colors.white, borderRadius: radius.xl, padding: spacing.xl, ...shadows.card }}>
-                  <FontAwesomeIcon icon={faQuoteLeft} size={20} color={colors.primary} />
-                  <Text style={{ marginTop: spacing.md, color: colors.text, fontSize: 14, lineHeight: 22 }}>{item.quote}</Text>
-                  <View style={{ marginTop: spacing.lg }}>
-                    <Text style={{ fontWeight: '700', color: colors.text }}>{item.name}</Text>
-                    <Text style={{ color: colors.textSecondary, fontSize: 12 }}>{item.category}</Text>
-                  </View>
-                </View>
-              ))}
-            </ScrollView>
+            <SectionHeader title="Why Choose Us" subtitle="What sets OpenIT apart." />
+            <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
+              <FeatureCard icon={faBriefcase} title="Trusted Expertise" description="Practical knowledge across IT, cybersecurity and network operations." />
+              <FeatureCard icon={faUsers} title="Family Values" description="A business rooted in trust, accountability and long-term relationships." />
+              <FeatureCard icon={faArrowUpRightFromSquare} title="Tailored Solutions" description="Services designed around your environment, goals and operational needs." />
+              <FeatureCard icon={faBell} title="Reliability" description="Dependable support and a steady focus on business continuity." />
+            </View>
           </View>
+
+
+
 
           <View style={{ marginTop: spacing.xxl }}>
             <SectionHeader title="Gallery Preview" subtitle="A snapshot of our latest project moments." action={<Pressable onPress={() => navigation.navigate('Gallery')}><Text style={{ color: colors.primary, fontWeight: '700' }}>View all</Text></Pressable>} />
@@ -140,32 +102,6 @@ export default function HomeScreen({ navigation }) {
                 </Pressable>
               ))}
             </View>
-          </View>
-
-          <View style={{ marginTop: spacing.xxl }}>
-            <SectionHeader title="Our Team" subtitle="The people behind the work." action={<Pressable onPress={() => navigation.navigate('OurTeam')}><Text style={{ color: colors.primary, fontWeight: '700' }}>Meet the team</Text></Pressable>} />
-            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingRight: spacing.md }}>
-              {teamMembers.map((member) => (
-                <View key={member.id} style={{ width: 180, marginRight: spacing.md, backgroundColor: colors.white, borderRadius: radius.xl, padding: spacing.xl, ...shadows.card }}>
-                  <View style={{ width: 62, height: 62, borderRadius: 31, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md }}>
-                    <Text style={{ color: colors.primary, fontWeight: '800' }}>{member.name.split(' ').map((part) => part[0]).slice(0,2).join('')}</Text>
-                  </View>
-                  <Text style={{ fontWeight: '700', color: colors.text }}>{member.name}</Text>
-                  <Text style={{ color: colors.primary, fontSize: 12, marginTop: 4 }}>{member.role}</Text>
-                </View>
-              ))}
-            </ScrollView>
-          </View>
-
-          <View style={{ marginTop: spacing.xxl }}>
-            <SectionHeader title="Find Us" subtitle="Visit our Marondera office." />
-            <Pressable onPress={() => navigation.navigate('Find Us')} style={{ backgroundColor: colors.white, borderRadius: radius.xl, padding: spacing.xl, ...shadows.card }}>
-              <View style={{ height: 160, borderRadius: radius.lg, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center' }}>
-                <FontAwesomeIcon icon={faMapLocationDot} size={30} color={colors.primary} />
-              </View>
-              <Text style={{ marginTop: spacing.md, color: colors.text, fontWeight: '700', fontSize: 18 }}>OpenIT</Text>
-              <Text style={{ marginTop: 6, color: colors.textSecondary, fontSize: 14 }}>{company.address}</Text>
-            </Pressable>
           </View>
 
           <View style={{ marginTop: spacing.xxl }}>

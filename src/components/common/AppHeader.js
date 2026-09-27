@@ -1,11 +1,14 @@
 import React from 'react';
-import { Text, View, Pressable } from 'react-native';
+import { Text, View, Pressable, Image } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 import { colors } from '../../theme/colors';
 import { spacing } from '../../theme/spacing';
 import { radius } from '../../theme/radius';
+
+import { appLogo } from '../../data/openitContent';
+import { resolveImageSource } from '../../utils/imageUtils';
 
 export default function AppHeader({ title, subtitle, showBack, onBack }) {
   return (
@@ -16,9 +19,12 @@ export default function AppHeader({ title, subtitle, showBack, onBack }) {
             <FontAwesomeIcon icon={faArrowLeft} size={16} color={colors.primary} />
           </Pressable>
         ) : null}
-        <View style={{ flex: 1 }}>
-          <Text style={{ fontSize: 28, fontWeight: '700', color: colors.text }}>{title}</Text>
-          {subtitle ? <Text style={{ marginTop: 4, color: colors.textSecondary, fontSize: 14 }}>{subtitle}</Text> : null}
+        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', gap: 12 }}>
+          <Image source={resolveImageSource(appLogo)} style={{ width: 48, height: 48, resizeMode: 'contain', marginRight: spacing.sm }} />
+          <View>
+            <Text style={{ fontSize: 22, fontWeight: '800', color: colors.text }}>{title}</Text>
+            {subtitle ? <Text style={{ marginTop: 4, color: colors.textSecondary, fontSize: 12 }}>{subtitle}</Text> : null}
+          </View>
         </View>
       </View>
     </View>

@@ -76,6 +76,7 @@ export const projectPlaceholders = [
     category: 'Managed IT',
     description: 'Project details coming soon. Placeholder project card prepared for future customer work.',
     technologies: ['Networking', 'Support'],
+    image: require('../gallery/project 1.jpeg'),
   },
   {
     id: 'project-2',
@@ -83,6 +84,7 @@ export const projectPlaceholders = [
     category: 'Cybersecurity',
     description: 'Project details coming soon. This project entry is a placeholder for future case studies.',
     technologies: ['Risk review', 'Security'],
+    image: require('../gallery/project2.jpeg'),
   },
   {
     id: 'project-3',
@@ -90,6 +92,7 @@ export const projectPlaceholders = [
     category: 'Renewable Energy',
     description: 'Project details coming soon. Placeholder content for future renewable-energy work.',
     technologies: ['Energy', 'Planning'],
+    image: require('../gallery/solar panels on roof.jpeg'),
   },
 ];
 
@@ -109,11 +112,21 @@ export const testimonials = [
 ];
 
 export const galleryItems = [
-  { id: 'g-1', title: 'OpenIT workspace', category: 'Professional', image: null },
-  { id: 'g-2', title: 'Network readiness', category: 'Network', image: null },
-  { id: 'g-3', title: 'Security overview', category: 'Security', image: null },
-  { id: 'g-4', title: 'Energy solutions', category: 'Renewable Energy', image: null },
+  { id: 'g-1', title: 'OpenIT workspace', category: 'Professional', image: require('../gallery/people at work.jpeg') },
+  { id: 'g-2', title: 'Network readiness', category: 'Network', image: require('../gallery/project2.jpeg') },
+  { id: 'g-3', title: 'Solar panel installation', category: 'Renewable Energy', image: require('../gallery/solar panels on roof.jpeg') },
+  { id: 'g-4', title: 'Project highlight', category: 'Project', image: require('../gallery/project3.jpeg') },
+  { id: 'g-5', title: 'Certifications', category: 'Partners', image: require('../gallery/Molex Certificate.png') },
+  { id: 'g-6', title: 'Partner logos', category: 'Partners', image: require('../gallery/MikroTik-logo-2021.png') },
+  { id: 'g-7', title: 'Sophos recognition', category: 'Partners', image: require('../gallery/sophos-global-partner-program-silver.png') },
+  { id: 'g-8', title: 'Molex', category: 'Partners', image: require('../gallery/Molex_large.png') },
+  { id: 'g-9', title: 'Close-up coding', category: 'Professional', image: require('../gallery/close-up-of-a-person-coding-on-a-laptop-showcasing-web-development-and-programming-concepts.jpeg') },
+  { id: 'g-10', title: 'Solar concept', category: 'Concept', image: require('../gallery/solar system.jpeg') },
+  { id: 'g-11', title: 'Project sample', category: 'Project', image: require('../gallery/project 1.jpeg') },
 ];
+
+// Primary app logo
+export const appLogo = require('../gallery/OpenITNoBackgroundFinal.png');
 
 export const onboardingSteps = [
   {

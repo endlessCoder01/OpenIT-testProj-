@@ -10,6 +10,7 @@ import PrimaryButton from '../../components/common/PrimaryButton';
 import SecondaryButton from '../../components/common/SecondaryButton';
 import FeatureCard from '../../components/common/FeatureCard';
 import { company, services, projectPlaceholders, testimonials, galleryItems, teamMembers } from '../../data/openitContent';
+import { resolveImageSource } from '../../utils/imageUtils';
 import { colors } from '../../theme/colors';
 import { spacing } from '../../theme/spacing';
 import { radius } from '../../theme/radius';
@@ -36,15 +37,7 @@ export default function HomeScreen({ navigation }) {
     <SafeAreaView style={{ flex: 1, backgroundColor: colors.background }}>
       <ScrollView contentContainerStyle={{ paddingBottom: 110 }}>
         <View style={{ paddingHorizontal: spacing.xl, paddingTop: spacing.md }}>
-          <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between' }}>
-            <View>
-              <Text style={{ fontSize: 12, fontWeight: '700', color: colors.primary }}>OpenIT</Text>
-              <Text style={{ fontSize: 12, color: colors.textSecondary }}>Good day</Text>
-            </View>
-            <Pressable accessibilityRole="button" accessibilityLabel="Open assistant" onPress={() => navigation.navigate('Ask OpenIT')} style={{ width: 42, height: 42, borderRadius: radius.pill, backgroundColor: colors.white, alignItems: 'center', justifyContent: 'center', ...shadows.card }}>
-              <FontAwesomeIcon icon={faComments} color={colors.primary} size={18} />
-            </Pressable>
-          </View>
+          <AppHeader title={company.name} subtitle="Good day" />
 
           <View style={{ marginTop: spacing.xl, backgroundColor: colors.white, borderRadius: radius.xl, padding: spacing.xl, ...shadows.card }}>
             <Text style={{ color: colors.primary, fontWeight: '700', marginBottom: spacing.sm }}>OpenIT</Text>
@@ -65,8 +58,8 @@ export default function HomeScreen({ navigation }) {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={{ paddingRight: spacing.md }}>
               {projectPlaceholders.map((project) => (
                 <Pressable key={project.id} onPress={() => navigation.navigate('Projects')} style={{ width: 240, marginRight: spacing.md, backgroundColor: colors.white, borderRadius: radius.xl, padding: spacing.xl, ...shadows.card }}>
-                  <View style={{ height: 120, borderRadius: radius.lg, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md }}>
-                    <Text style={{ color: colors.primary, fontWeight: '700' }}>Project</Text>
+                  <View style={{ height: 120, borderRadius: radius.lg, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center', marginBottom: spacing.md, overflow: 'hidden' }}>
+                    <Image source={resolveImageSource(project.image)} style={{ width: '100%', height: 120, resizeMode: 'cover' }} />
                   </View>
                   <Text style={{ color: colors.primary, fontSize: 12, fontWeight: '700', textTransform: 'uppercase' }}>{project.category}</Text>
                   <Text style={{ marginTop: spacing.sm, color: colors.text, fontWeight: '700', fontSize: 18 }}>{project.title}</Text>
@@ -95,9 +88,7 @@ export default function HomeScreen({ navigation }) {
             <View style={{ flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-between' }}>
               {galleryItems.slice(0, 4).map((item) => (
                 <Pressable key={item.id} onPress={() => navigation.navigate('Gallery')} style={{ width: '48%', marginBottom: spacing.md, borderRadius: radius.lg, overflow: 'hidden', backgroundColor: colors.white, ...shadows.card }}>
-                  <View style={{ height: 130, backgroundColor: colors.primaryLight, alignItems: 'center', justifyContent: 'center' }}>
-                    <Text style={{ color: colors.primary, fontWeight: '700' }}>{item.category}</Text>
-                  </View>
+                  <Image source={item.image} style={{ width: '100%', height: 130, resizeMode: 'cover' }} />
                   <Text style={{ padding: spacing.md, color: colors.text, fontWeight: '700' }}>{item.title}</Text>
                 </Pressable>
               ))}
